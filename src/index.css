@@ -1,0 +1,20 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+ --bg-color:white;  /*   qoraga ozgaradi */
+  --text-color:black;  /* oqqa ozgaradi */
+    --background-color: #0d1117;
+  --particle-color: #00ffcc; 
+}
+[data-theme="light"] {
+  --background-color: #ffffff;
+  --particle-color: #0077ff;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+

@@ -1,0 +1,24 @@
+/* Asosiy konteyner */
+.app_container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+    background-color: transparent;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Fon uchun zarrachalar */
+#tsparticles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
