@@ -1,0 +1,161 @@
+.admin_container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+}
+.admin_form {
+    padding: 20px;
+    border: 5px solid transparent;
+    border-radius: 2em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    /* display: grid; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    place-content: center;
+    gap: 40px;
+    transition: all 0.4s ease;
+
+    --border-angle: 0turn;
+    --main-bg: conic-gradient(from var(--border-angle),
+            var(--main-bg1),
+            var(--main-bg2) 5%,
+            var(--main-bg2) 60%,
+            var(--main-bg1) 95%);
+
+    --gradient-border: conic-gradient(from var(--border-angle),
+            var(--border-c1),
+            var(--border-c2),
+            var(--border-c1));
+
+    background:
+        var(--main-bg) padding-box,
+        var(--gradient-border) border-box;
+
+    animation: bg-spin 3s linear infinite;
+}
+
+@keyframes bg-spin {
+    to {
+        --border-angle: 1turn;
+    }
+}
+
+.admin_form:hover {
+    animation-play-state: paused;
+}
+
+
+.admin_form h1 {
+    font-size: 32px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.admin_input {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+
+}
+
+.admin_input label {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.admin_input input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid gray;
+    /* box-shadow: 5px 5px 5px red; */
+    border-radius: 10px;
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+    width: 100%;
+    input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important; /* background rangini o‘zgartiradi */
+  -webkit-text-fill-color: #000 !important; /* text rangini o‘zgartiradi */
+  transition: background-color 5000s ease-in-out 0s; /* Chrome autofill transition */
+}
+
+}
+
+.handle_hide_text{
+    transform: translateY(15px);
+    background-color: transparent;
+    text-align: start;
+    font-size: large;
+
+    color: var(--text-color);
+}
+
+.input_box{
+    display: flex;
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+
+.admin_button {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    width: 8.5em;
+    height: 2.9em;
+    border: 0.2em solid var(--btn-border);
+    border-radius: 11px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0.5px;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px transparent;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.admin_button:hover {
+    background-color: var(--btn-hover-bg);
+    color: var(--btn-hover-text);
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--btn-shadow), 0 0 30px var(--btn-shadow);
+    transform: translateY(-2px);
+}
+
+.admin_button:active {
+    transform: translateY(0);
+    box-shadow: 0 0 5px var(--btn-shadow);
+}
+
+.admin_button span {
+    width: 1.6em;
+    margin: 0.7em 0.8em 1em;
+    position: absolute;
+    display: flex;
+    transition: all 0.6s ease;
+}
+
+.admin_button:hover span {
+    transform: translateX(5px);
+}
+
+.admin_button_text {
+    margin: 0 1.5em
+}
