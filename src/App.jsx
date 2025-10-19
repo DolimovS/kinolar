@@ -1,22 +1,40 @@
 
-import "./App.css";
-import BackgroundParticles from "../routes/BackgroundParticles";
+
+import { Routes, Route, Navigate } from "react-router-dom";
+import UserLayout from "./layouts/userLayout/UserLayout";
+import AdminLayout from "./layouts/adminLayout/AdminLayout";
+import AdminLogin from "./components/adminLogin/AdminLogin";
 import useAppStore from "./store/useAppStore";
-import AdminNavbar from "./components/navbar/adminNavbar/AdminNavbar";
+import BackgroundParticles from "../routes/BackgroundParticles";
 import UserNavbar from "./components/navbar/userNavbar/UserNavbar";
+import { useEffect } from "react";
+import "./App.css"
 
 function App() {
-const isOpenAdmin = useAppStore((state) => state.isAdminPanelOpen);
+  const { setIsAdmin, isAdmin } = useAppStore();
+
+  useEffect(() => {
+    const token = localStorage.getItem("adminToken");
+    if (token) setIsAdmin(true);
+  }, []);
 
 
   return (
-    <div className="app_container">
+    <div>
       <BackgroundParticles />
-      <AdminNavbar/>
-      <UserNavbar/>
+      <Routes>
+        <Route path="/*" element={<UserLayout />} />
 
+        <Route path="/admin-login" element={<AdminLogin />} />
+
+        <Route
+          path="/admin/*"
+          element={isAdmin ? <AdminLayout /> : <Navigate to="/admin-login" />}
+        />
+      </Routes>
     </div>
   );
 }
 
 export default App;
+
