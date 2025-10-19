@@ -1,0 +1,229 @@
+/* =============================
+   ADMIN PANEL ANIMATSIYASI
+============================= */
+
+.admin_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* background-image: url(../../assets/img/adminbg.jpg); */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  background-color: rgba(0, 0, 0, 0.336);
+  /* Animatsiya uchun boshlang'ich holat */
+  /* transform: scale(0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4); */
+}
+
+/* OCHILGAN HOLAT */
+/* .admin_container.open {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: all;
+} */
+
+/* YOPILGAN HOLAT */
+/* .admin_container.close {
+  transform: scale(0.7);
+  opacity: 0;
+  pointer-events: none;
+} */
+
+
+/* =============================
+   LOGIN FORM STILI
+============================= */
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+
+.admin_form {
+  padding: 20px;
+  border: 5px solid transparent;
+  border-radius: 2em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  transition: all 0.4s ease;
+
+  --border-angle: 0turn;
+  --main-bg: conic-gradient(
+    from var(--border-angle),
+    var(--main-bg1),
+    var(--main-bg2) 5%,
+    var(--main-bg2) 60%,
+    var(--main-bg1) 95%
+  );
+
+  --gradient-border: conic-gradient(
+    from var(--border-angle),
+    var(--border-c1),
+    var(--border-c2),
+    var(--border-c1)
+  );
+
+  background: var(--main-bg) padding-box, var(--gradient-border) border-box;
+
+  animation: bg-spin 3s linear infinite;
+}
+
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+
+.admin_form:hover {
+  animation-play-state: paused;
+}
+
+.admin_form h1 {
+  font-size: 32px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* =============================
+   INPUTLAR
+============================= */
+
+.admin_input {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+
+.admin_input label {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.admin_input input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  background-color: var(--input-bg-color);
+  color: var(--text-color);
+  width: 100%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: #000 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* =============================
+   PASSWORD TOGGLE
+============================= */
+.handle_hide_text {
+  margin-top: 8px;
+  background-color: transparent;
+  text-align: start;
+  font-size: 15px;
+  color: var(--text-color);
+  cursor: pointer;
+  border: none;
+}
+
+/* =============================
+   BUTTONLAR
+============================= */
+.adminbtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 350px;
+  gap: 20px;
+}
+
+.adminbtn button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Yopish tugmasi */
+.adminbtn button:first-child {
+  background-color: #ff4b4b;
+  color: white;
+}
+
+.adminbtn button:first-child:hover {
+  background-color: #ff2b2b;
+  transform: scale(1.05);
+}
+
+/* Submit tugmasi */
+.admin_button {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  width: 8.5em;
+  height: 2.9em;
+  border: 0.2em solid var(--btn-border);
+  border-radius: 11px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.5px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.admin_button:hover {
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+  cursor: pointer;
+  box-shadow: 0 0 15px var(--btn-shadow), 0 0 30px var(--btn-shadow);
+  transform: translateY(-2px);
+}
+
+.admin_button:active {
+  transform: translateY(0);
+  box-shadow: 0 0 5px var(--btn-shadow);
+}
+
+.admin_button span {
+  width: 1.6em;
+  margin: 0.7em 0.8em 1em;
+  position: absolute;
+  display: flex;
+  transition: all 0.6s ease;
+}
+
+.admin_button:hover span {
+  transform: translateX(5px);
+}
+
+.admin_button_text {
+  margin: 0 1.5em;
+}
