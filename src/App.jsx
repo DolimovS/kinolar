@@ -1,16 +1,19 @@
 
 import "./App.css";
 import BackgroundParticles from "../routes/BackgroundParticles";
-import AdminLayout from "./layouts/adminLayout/AdminLayout";
-import Navbar from "./components/navbar/Navbar";
+import useAppStore from "./store/useAppStore";
+import AdminNavbar from "./components/navbar/adminNavbar/AdminNavbar";
+import UserNavbar from "./components/navbar/userNavbar/UserNavbar";
 
 function App() {
+const isOpenAdmin = useAppStore((state) => state.isAdminPanelOpen);
+
+
   return (
     <div className="app_container">
       <BackgroundParticles />
-      {/* <AdminLayout/> */}
-      <Navbar/>
-
+      <AdminNavbar/>
+      <UserNavbar/>
 
     </div>
   );

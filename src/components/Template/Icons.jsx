@@ -3,12 +3,18 @@ import React from "react";
 const IconComponent = ({ name }) => {
     // 🔹 Iconlar ro‘yxati
     const icons = {
-        home: "<svg width='24' height='24' fill='currentColor'><path d='M3 12L12 3l9 9h-3v9H6v-9H3z'/></svg>",
-        settings: "<svg width='24' height='24' fill='currentColor'><path d='M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7zm8.94-2.06l1.43 1.43-1.42 1.42-1.43-1.43a7.933 7.933 0 0 1-1.77 1.03l-.27 1.92h-2.02l-.27-1.92a7.933 7.933 0 0 1-1.77-1.03L8.05 16.3l-1.42-1.42 1.43-1.43a7.933 7.933 0 0 1-1.03-1.77l-1.92-.27v-2.02l1.92-.27a7.933 7.933 0 0 1 1.03-1.77L6.63 7.7l1.42-1.42 1.43 1.43a7.933 7.933 0 0 1 1.77-1.03l.27-1.92h2.02l.27 1.92a7.933 7.933 0 0 1 1.77 1.03l1.43-1.43L19.9 7.7l-1.43 1.43a7.933 7.933 0 0 1 1.03 1.77l1.92.27v2.02l-1.92.27a7.933 7.933 0 0 1-1.03 1.77z'/></svg>",
-        user: "<svg width='24' height='24' fill='currentColor'><path d='M12 12c2.67 0 8 1.34 8 4v4H4v-4c0-2.66 5.33-4 8-4zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'/></svg>",
+        sun: `<svg xmlns="http://www.w3.org/2000/svg" width="24"          height="24"  viewBox="0 0 24 24" fill="none">
+            <path d="M19.01 4.99L19.14 4.86M4.86 19.14L4.99 19.01M12 2.08V2M12 22V21.92M2.08 12H2M22 12H21.92M4.99 4.99L4.86 4.86M19.14 19.14L19.01 19.01M18.5 12C18.5 15.5899 15.5899 18.5 12 18.5C8.41015 18.5 5.5 15.5899 5.5 12C5.5 8.41015 8.41015 5.5 12 5.5C15.5899 5.5 18.5 8.41015 18.5 12Z" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>`,
+        oy:`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M2.03 12.42C2.39 17.57 6.76 21.76 11.99 21.99C15.68 22.15 18.98 20.43 20.96 17.72C21.78 16.61 21.34 15.87 19.97 16.12C19.3 16.24 18.61 16.29 17.89 16.26C13 16.06 9 11.97 8.98 7.13996C8.97 5.83996 9.24 4.60996 9.73 3.48996C10.27 2.24996 9.62 1.65996 8.37 2.18996C4.41 3.85996 1.7 7.84996 2.03 12.42Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>`,
         strelka_chap:`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701M3.5 12.0001H20.33" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`
+        </svg>`,
+        admin:`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 22C14.6 22 16.96 21.01 18.74 19.38C18.64 18.44 18.04 17.52 16.97 16.8C14.25 14.98 9.77 14.98 7.03 16.8C5.96 17.52 5.36 18.44 5.26 19.38C7.04 21.01 9.4 22 12 22ZM12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM12.12 12.78C12.05 12.77 11.96 12.77 11.88 12.78C10.12 12.72 8.72 11.28 8.72 9.51C8.72 7.7 10.18 6.23 12 6.23C13.81 6.23 15.28 7.7 15.28 9.51C15.27 11.28 13.88 12.72 12.12 12.78Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
     };
 
     // 🔹 Iconni olish funksiyasi

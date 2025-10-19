@@ -1,11 +1,11 @@
-.nav_container {
-    /* border: 1px solid red; */
-    display: flex;
+.admin_nav,
+.user_nav{
+        display: flex;
     justify-content: center;
     margin: 0 auto;
 }
-
-.nav {
+.admin_navbar,
+.user_navbar {
     position: absolute;
     top: 0;
     display: flex;
@@ -17,22 +17,11 @@
     border-radius: 0 0 20px 20px;
     backdrop-filter: blur(20px);
 }
-.nav h1 span{
-    /* border: 1px solid red; */
-    font-size: 35px;
-    background: url(../../assets/img/gradient3.jpg);
-    background-size: cover;
-    background-clip: text;
-    color: transparent;
-    font-weight: 900;
-    animation: logo_animation 3s linear infinite;
-}
 
-@keyframes logo_animation{
-    to{
-        background-position-x: -500px;
-    }
-}
+
+
+
+
 .nav_links {
     display: flex;
     gap: 20px;
@@ -69,15 +58,20 @@
 }
 
 
-
-
-
-
-
-
-
-
-.nav_contact {
+.nav_contact{
     display: flex;
     gap: 20px;
+}
+.nav_contact button path{
+    stroke: var(--text-color);
+    cursor: pointer;
+}
+
+.nav_contact button{
+    /* border: 1px solid red; */
+    padding: 5px ;
+    border-radius: 10px;
+    /* background-color: #fff; */
+    background-color: transparent;
+    backdrop-filter: blur(20px);
 }

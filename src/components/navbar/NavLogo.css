@@ -1,0 +1,15 @@
+h1 span{
+    /* border: 1px solid red; */
+    font-size: 35px;
+    background: url(../../assets/img/gradient3.jpg);
+    background-size: cover;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+    animation: logo_animation 3s linear infinite;z-index: 1;
+}
+@keyframes logo_animation{
+    to{
+        background-position-x: -500px;
+    }
+}
