@@ -6,7 +6,7 @@
 }
 .admin_navbar,
 .user_navbar {
-    /* position: static; */
+    position: static;
     top: 0;
     display: flex;
     align-items: center;
@@ -15,7 +15,10 @@
     width: 90%;
     padding: 20px 30px;
     border-radius: 0 0 20px 20px;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 5px 30px 0 rgba(22, 32, 220, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: none;
 }
 
 

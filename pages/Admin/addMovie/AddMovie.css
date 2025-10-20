@@ -1,0 +1,151 @@
+
+.addname_container{
+    /* border: 1px solid red; */
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.add_kino_form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px;
+    border-radius: 20px;
+    /* box-shadow: 0 5px 30px 0 rgba(2, 12, 197, 0.37); */
+    box-shadow: 0 5px 30px 0 rgba(146, 1, 33, 0.658);
+    /* border: 1px solid rgba(255, 255, 255, 0.18); */
+}
+
+.form_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+
+
+
+
+
+
+
+
+/* From Uiverse.io by cssbuttons-io */ 
+.noselect {
+ width: 150px;
+ height: 30px;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ background: red;
+ border: none;
+ border-radius: 5px;
+ box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+ background: #e62222;
+}
+
+.noselect, .noselect span {
+ transition: 200ms;
+}
+
+.noselect .text {
+ transform: translateX(10px);
+ color: white;
+ font-weight: bold;
+}
+
+.noselect .icon {
+ position: absolute;
+ border-left: 1px solid #c41b1b;
+ transform: translateX(110px);
+ height: 30px;
+ width: 30px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.noselect svg {
+ width: 15px;
+ fill: #eee;
+}
+
+.noselect:hover {
+ background: #ff3636;
+}
+
+.noselect:hover .text {
+ color: transparent;
+}
+
+.noselect:hover .icon {
+ width: 150px;
+ border-left: none;
+ transform: translateX(0);
+}
+
+.noselect:focus {
+ outline: none;
+}
+
+.noselect:active .icon svg {
+ transform: scale(0.8);
+}
+
+
+
+
+
+
+/* From Uiverse.io by vinodjangid07 */ 
+.button_next {
+  width: 120px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  border: 3px solid rgb(255, 239, 94);
+  background-color: rgb(255, 239, 94);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.137);
+}
+
+.button_next .text {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(27, 27, 27);
+  color: white;
+}
+
+.button_next .arrow path {
+  fill: rgb(19, 19, 19);
+}
+
+.button_next:hover .arrow {
+  animation: slide-in-left 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-8px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.button_next:active {
+  transform: scale(0.97);
+}

@@ -49,8 +49,8 @@
   --btn-hover-text: #fff;
   --btn-shadow: rgba(54, 84, 255, 0.35);  */
 }
-[data-theme="light"] {
-}
+/* [data-theme="light"] {
+} */
 
 *{
   margin: 0;
@@ -81,7 +81,7 @@ button{
   max-width: 1900px;
   width: 100%;
   padding:  0 20px;
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
   margin: 0 auto;
 }
 
