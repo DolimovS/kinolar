@@ -6,7 +6,6 @@ import AdminLayout from "./layouts/adminLayout/AdminLayout";
 import AdminLogin from "./components/adminLogin/AdminLogin";
 import useAppStore from "./store/useAppStore";
 import BackgroundParticles from "../routes/BackgroundParticles";
-import UserNavbar from "./components/navbar/userNavbar/UserNavbar";
 import { useEffect } from "react";
 import "./App.css"
 

@@ -6,6 +6,7 @@ const Posters = () => {
       );
   return (
     <div className="posters_container">
+      
         {kinoHaqidaMalumotlar.map((kino, index) => (
             <Cards key={index} KinoNomi={kino.nomi} KinoVaqti={kino.davomiyligi} KinoJanr={kino.janr} />
         ))}
