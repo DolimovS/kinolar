@@ -1,14 +1,9 @@
 .kinolar_container{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     width: 90%;
     /* width: 1440px; */
     margin: 0 auto;
-
-}
-.konolar{
-    width: 500px;
-    height: 200px;
-    border: 2px solid red;
+    overflow: hidden;
 }
