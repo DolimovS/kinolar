@@ -3,7 +3,7 @@ import adminbg from "./../assets/img/adminbg.jpg";
 import adminbg1 from "./../assets/img/gradient.jpg";
 import IconComponent from "./Template/Icons";
 
-const Cards = (({KinoNomi, KinoVaqti, KinoJanr}) => {
+const Cards = (({KinoNomi, KinoJanr}) => {
     return (
         <div>
             <div className="cards_container">
@@ -44,7 +44,7 @@ const Cards = (({KinoNomi, KinoVaqti, KinoJanr}) => {
                                         </p>
                                     </div>
                                     <p className="card-footer">
-                                        {KinoVaqti} &nbsp;  &nbsp; 
+                                        {/* {KinoVaqti} &nbsp;  &nbsp;  */}
                                     </p>
                                 </div>
                             </div>
