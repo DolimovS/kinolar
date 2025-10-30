@@ -2,35 +2,36 @@ import "./AddMovie.css";
 import Inputadd from "../../../src/components/input/Inputadd";
 import { useState } from "react";
 import Posters from "../../../src/components/adminComponents/Posters";
-
+import api from "../../../src/utils/axios"
 const AddMovie = () => {
   const [kinoNomi, setKinoNomi] = useState("");
   const [kinoHaqida, setKinoHaqida] = useState("");
   const [kinoJanr, setKinoJanr] = useState("");
-  const [kinoVaqti, setKinoVaqti] = useState("");
+  // const [kinoVaqti, setKinoVaqti] = useState("");
   const [kinoSana, setKinoSana] = useState("");
   const [kinoRasm, setKinoRasm] = useState("");
-
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    const saqlangan = JSON.parse(
-      localStorage.getItem("kinoHaqidaMalumotlar") || "[]"
-    );
-    // formani yuborish logikasi shu yerda bo'ladi
-    const kinoHaqidaMalumot = {
-      nomi: kinoNomi,
-      haqida: kinoHaqida,
-      janr: kinoJanr,
-      davomiyligi: kinoVaqti,
-      chiqarilganYili: kinoSana,
-      // faylni to'g'ridan-to'g'ri saqlamaymiz — faqat nomini saqlaymiz.
-      rasmNomi: kinoRasm ? kinoRasm.name : null,
-    };
-    saqlangan.push(kinoHaqidaMalumot);
-    localStorage.setItem("kinoHaqidaMalumotlar", JSON.stringify(saqlangan));
+    try {
+      const formData = new FormData();
+      formData.append("nomi", kinoNomi);
+      formData.append("haqida", kinoHaqida);
+      formData.append("janr", kinoJanr);
+      if (kinoSana) formData.append("chiqarilganYili", kinoSana);
+      if (kinoRasm) formData.append("rasm", kinoRasm); // fayl nomi va kontenti
 
-    inputValueClear();
-    console.log("Yuborilgan kino ma'lumotlari:", kinoHaqidaMalumot);
+      const response = await api.post("movies/", formData);
+      console.log("Yuborildi:", response.data);
+
+      // formani tozalash (inputValueClear() faylni tozalashda xato bersa, shu yerda tozalashni ishlatamiz)
+      setKinoNomi("");
+      setKinoHaqida("");
+      setKinoJanr("");
+      setKinoSana("");
+      setKinoRasm("");
+    } catch (error) {
+      console.error("Yuborishda xato:", error);
+    }
   }
 
   function inputValueClear() {
@@ -38,7 +39,7 @@ const AddMovie = () => {
     setKinoHaqida("");
     setKinoJanr("");
     setKinoVaqti("");
-    setKinoSana("");
+    // setKinoSana("");
     setKinoRasm("");
   }
 
@@ -66,13 +67,13 @@ const AddMovie = () => {
           value={kinoJanr}
           onChange={(e) => setKinoJanr(e.target.value)}
         />
-        <Inputadd
+        {/* <Inputadd
           label="Davomiyligi"
           placeholder="Davomiyligi"
           type="text"
           value={kinoVaqti}
           onChange={(e) => setKinoVaqti(e.target.value)}
-        />
+        /> */}
         <Inputadd
           label="Chiqarilgan yili"
           placeholder="Chiqarilgan yili"

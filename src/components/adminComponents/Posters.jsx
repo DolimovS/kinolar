@@ -8,7 +8,7 @@ const Posters = () => {
     <div className="posters_container">
       
         {kinoHaqidaMalumotlar.map((kino, index) => (
-            <Cards key={index} KinoNomi={kino.nomi} KinoVaqti={kino.davomiyligi} KinoJanr={kino.janr} />
+            <Cards key={index} KinoNomi={kino.nomi}  KinoJanr={kino.janr} />
         ))}
     </div>
   )
