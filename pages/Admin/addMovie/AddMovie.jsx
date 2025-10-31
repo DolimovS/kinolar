@@ -1,47 +1,59 @@
 import "./AddMovie.css";
 import Inputadd from "../../../src/components/input/Inputadd";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import Posters from "../../../src/components/adminComponents/Posters";
 import api from "../../../src/utils/axios"
+
+
 const AddMovie = () => {
   const [kinoNomi, setKinoNomi] = useState("");
   const [kinoHaqida, setKinoHaqida] = useState("");
   const [kinoJanr, setKinoJanr] = useState("");
-  // const [kinoVaqti, setKinoVaqti] = useState("");
   const [kinoSana, setKinoSana] = useState("");
   const [kinoRasm, setKinoRasm] = useState("");
+  const [kinoHaqidaMalumotlar,setKinoHaqidaMalumotlar]=useState([])
+
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
       const formData = new FormData();
-      formData.append("nomi", kinoNomi);
-      formData.append("haqida", kinoHaqida);
+      formData.append("movie_name", kinoNomi);
+      formData.append("discription", kinoHaqida);
       formData.append("janr", kinoJanr);
-      if (kinoSana) formData.append("chiqarilganYili", kinoSana);
-      if (kinoRasm) formData.append("rasm", kinoRasm); // fayl nomi va kontenti
+      if (kinoSana) formData.append("movie_year", kinoSana);
+      if (kinoRasm) formData.append("rasm", kinoRasm);
 
-      const response = await api.post("movies/", formData);
+
+      const response = await api.post("/movies", formData);
       console.log("Yuborildi:", response.data);
 
-      // formani tozalash (inputValueClear() faylni tozalashda xato bersa, shu yerda tozalashni ishlatamiz)
-      setKinoNomi("");
-      setKinoHaqida("");
-      setKinoJanr("");
-      setKinoSana("");
-      setKinoRasm("");
+      await fetchMovies()
+      inputValueClear()
+      
     } catch (error) {
       console.error("Yuborishda xato:", error);
     }
   }
 
+
   function inputValueClear() {
     setKinoNomi("");
     setKinoHaqida("");
     setKinoJanr("");
-    setKinoVaqti("");
-    // setKinoSana("");
+    setKinoSana("");
     setKinoRasm("");
   }
+
+  const fetchMovies =  async ()=>{
+      const res= await api.get("/movies")
+      setKinoHaqidaMalumotlar(res.data)
+      console.log(res.data);
+      
+    }
+  useEffect(()=>{
+    fetchMovies()
+  },[])
 
   return (
     <div className="addname_container">
@@ -116,7 +128,7 @@ const AddMovie = () => {
         </div>
       </form>
 
-      <Posters />
+      <Posters kinoHaqidaMalumotlar={kinoHaqidaMalumotlar} />
     </div>
   );
 };

@@ -2,12 +2,28 @@ import "./Cards.css";
 import adminbg from "./../assets/img/adminbg.jpg";
 import adminbg1 from "./../assets/img/gradient.jpg";
 import IconComponent from "./Template/Icons";
+import { NavLink } from "react-router-dom";
 
-const Cards = (({KinoNomi, KinoJanr}) => {
+const Cards = ({ id, KinoNomi, KinoJanr }) => {
     return (
-        <div>
-            <div className="cards_container">
-                <div className="card">
+        <NavLink > <div  className="card_container">
+            <div className="card_img">
+                <div className="card_janr">
+                    <p>{KinoJanr}</p>
+                </div>
+                <img src={adminbg} alt="" />
+            </div>
+            <div className="cards_text">
+            <p>
+                {KinoNomi && KinoNomi.length > 15
+                    ? `${KinoNomi.slice(0, 15)}...`
+                    : KinoNomi || ""}
+            </p>
+
+            </div>
+
+            {/* <div className="cards_container" >
+                <div className="card" key={id}>
                     <div className="content">
                         <div className="back">
                             <div
@@ -29,9 +45,7 @@ const Cards = (({KinoNomi, KinoJanr}) => {
                                     backgroundSize: "cover",
                                 }}
                             >
-                                {/* <div className="circle"></div>
-                                <div className="circle" id="right"></div>
-                                <div className="circle" id="bottom"></div> */}
+                                
                                 
                             </div>
 
@@ -44,16 +58,16 @@ const Cards = (({KinoNomi, KinoJanr}) => {
                                         </p>
                                     </div>
                                     <p className="card-footer">
-                                        {/* {KinoVaqti} &nbsp;  &nbsp;  */}
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>   */}
         </div>
+        </NavLink>
     );
-});
+};
 
 export default Cards;
