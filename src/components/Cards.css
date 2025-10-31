@@ -1,4 +1,68 @@
+
+
+
+.card_container{
+    width: 190px;
+    height: 254px;
+    /* height: 190px;
+    width: 254px; */
+    /* height: 220px;
+    width: 354px; */
+    border: 2px solid red;
+    border-radius: 20px;
+}
+.card_img{
+  width: 100%;
+  height: 80%;
+  position: relative;
+}
+.card_janr{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px;
+  color: rgb(221, 212, 212);
+  backdrop-filter: blur(10px);
+
+}
+.card_img img{
+  width: 100%;
+  height: 100%;
+  border-radius: 20px 20px 0 0;
+} 
+
+.cards_text p{
+  font-size: 20px;
+  color: white;
+  padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* From Uiverse.io by ElSombrero2 */ 
+/* 
+.cards_container{
+  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .cards_container .card {
   overflow: visible;
   width: 190px;
@@ -100,7 +164,6 @@
   width: 100%;
   padding: 10px;
   background-color: black;
-  /* backdrop-filter: blur(5px); */
   border-radius: 5px;
   opacity: 1;
 }
@@ -170,4 +233,4 @@
   100% {
     transform: translateY(0px);
   }
-}
+} */
