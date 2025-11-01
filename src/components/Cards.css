@@ -4,10 +4,7 @@
 .card_container{
     width: 190px;
     height: 254px;
-    /* height: 190px;
-    width: 254px; */
-    /* height: 220px;
-    width: 354px; */
+
     border: 2px solid red;
     border-radius: 20px;
 }

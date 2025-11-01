@@ -1,7 +1,5 @@
 import "./Cards.css";
 import adminbg from "./../assets/img/adminbg.jpg";
-import adminbg1 from "./../assets/img/gradient.jpg";
-import IconComponent from "./Template/Icons";
 import { NavLink } from "react-router-dom";
 
 const Cards = ({ id, KinoNomi, KinoJanr }) => {
