@@ -63,6 +63,8 @@ const Cards = ({ id, KinoNomi, KinoJanr }) => {
                     </div>
                 </div>
             </div>   */}
+
+            {/* zor */}
         </div>
         </NavLink>
     );
