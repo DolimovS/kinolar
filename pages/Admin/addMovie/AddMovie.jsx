@@ -16,15 +16,17 @@ const AddMovie = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    try {
+    try { 
+      
       const formData = new FormData();
       formData.append("movie_name", kinoNomi);
       formData.append("discription", kinoHaqida);
       formData.append("janr", kinoJanr);
       if (kinoSana) formData.append("movie_year", kinoSana);
-      if (kinoRasm) formData.append("rasm", kinoRasm);
+      if (kinoRasm) formData.append("imgUrl", kinoRasm);
 
-
+      console.log(kinoRasm);
+      
       const response = await api.post("/movies", formData);
       console.log("Yuborildi:", response.data);
 

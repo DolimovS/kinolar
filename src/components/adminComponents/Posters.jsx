@@ -13,11 +13,15 @@ const Posters = ({kinoHaqidaMalumotlar}) => {
   //   }
   // useEffect(()=>{
   //   fetchMovies()
+  
   // },[])
+
+  console.log(kinoHaqidaMalumotlar);
+  
   return (
     <div className="posters_container">
         {kinoHaqidaMalumotlar.map((kino, index) => (
-            <Cards key={kino._id} id={kino.id} KinoNomi={kino.movie_name}  KinoJanr={kino.janr} />
+            <Cards key={kino._id} id={kino.id} KinoNomi={kino.movie_name}  KinoJanr={kino.janr} KinoImg={kino.imgUrl} />
         ))}
     </div>
   )
