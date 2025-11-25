@@ -24,7 +24,17 @@ const OneMovie = () => {
             console.error("Malumotlar olinmadi:", err);
         }
     }
-
+const oneMovieDelete= async()=>{
+    try {
+        console.log("O'chirildi");
+        
+        const response= await api.delete(`/movies/${id}`)
+        console.log("O'chirildi:",response.data);
+        setMovie(null)
+    } catch (error) {
+        console.error("O'chirishda xato:",error);
+    }
+    }
     useEffect(() => {
         getMovieById(id)
 
@@ -118,7 +128,7 @@ const OneMovie = () => {
             </div>
 
             <div className="one_video_delete">
-                <button>O'chirish</button>
+                <button onClick={oneMovieDelete}>O'chirish</button>
             </div>
         </div>
     )
