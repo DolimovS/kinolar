@@ -7,6 +7,7 @@ import Users from "../../../pages/Admin/users/Users";
 import Settings from "../../../pages/Admin/settings/Settings";
 
 import "./AdminLayout.css";
+import OneMovie from "../../components/oneMovie/OneMovie";
 
 const AdminLayout = () => {
     return (
@@ -20,6 +21,7 @@ const AdminLayout = () => {
                     <Route path="addmovie" element={<AddMovie />} />
                     <Route path="users" element={<Users />} />
                     <Route path="settings" element={<Settings />} />
+                    <Route path="addmovie/:id" element={<OneMovie />} />
                 </Routes>
             </div>
         </div>

@@ -45,7 +45,7 @@ const BackgroundParticles = () => {
     }, []);
 
     const particlesLoaded = (container) => {
-        console.log("Particles loaded:", container);
+        // console.log("Particles loaded:", container);
     };
 
     // 🌈 Dynamic ranglar asosida konfiguratsiya
