@@ -1,10 +1,10 @@
 import "./Cards.css";
 import adminbg from "./../assets/img/adminbg.jpg";
-import { NavLink } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 const Cards = ({ id, KinoNomi, KinoJanr, KinoImg }) => {
+    const navigate=useNavigate()
     return (
-        <NavLink > <div className="card_container">
+         <div  onClick={() => navigate(`/admin/addmovie/${id}`)} className="card_container">
             <div className="card_img">
                 <div className="card_janr">
                     <p>{KinoJanr && KinoJanr.length > 15
@@ -22,7 +22,7 @@ const Cards = ({ id, KinoNomi, KinoJanr, KinoImg }) => {
 
             </div>
         </div>
-        </NavLink>
+    
     );
 };
 
