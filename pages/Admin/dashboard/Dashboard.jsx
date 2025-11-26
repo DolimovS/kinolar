@@ -1,10 +1,13 @@
 
+import SearchInput  from "../../../src/components/searchInput/SearchInput"
 import "./Dashboard.css"
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div>
+      <SearchInput />
+    </div>
   )
 }
 
-export default Dashboard
+export default Dashboar
