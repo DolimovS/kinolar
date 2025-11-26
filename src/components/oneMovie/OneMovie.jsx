@@ -1,19 +1,20 @@
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import "./OneMovie.css"
 import api from "../../utils/axios"
 import { useEffect, useState } from "react"
 import Inputadd from "../../components/input/Inputadd"
-
+import ToastifyComponent from "../../utils/ToastifyComponent"
 
 const OneMovie = () => {
     const { id } = useParams()
     const [movie, setMovie] = useState(null)
-    const [kinoNomi,setKinoNomi]=useState( "")
-    const [kinoHaqida,setKinoHaqida]=useState( "")
-    const [kinoJanr,setKinoJanr]=useState(" ")
-    const [kinoSana,setKinoSana]=useState("")
-    const [kinoVideo,setKinoVideo]=useState("")
-
+    const [kinoNomi, setKinoNomi] = useState("")
+    const [kinoHaqida, setKinoHaqida] = useState("")
+    const [kinoJanr, setKinoJanr] = useState(" ")
+    const [kinoSana, setKinoSana] = useState("")
+    const [kinoVideo, setKinoVideo] = useState("")
+    const [toastOptions, setToastOptions] = useState({ open: false })
+    const navigate = useNavigate()
     console.log(id);
     async function getMovieById(id) {
         try {
@@ -24,16 +25,38 @@ const OneMovie = () => {
             console.error("Malumotlar olinmadi:", err);
         }
     }
-const oneMovieDelete= async()=>{
-    try {
-        console.log("O'chirildi");
-        
-        const response= await api.delete(`/movies/${id}`)
-        console.log("O'chirildi:",response.data);
-        setMovie(null)
-    } catch (error) {
-        console.error("O'chirishda xato:",error);
-    }
+    const oneMovieDelete = async () => {
+        try {
+            setToastOptions({
+                openConfirm: true,
+                text: "Kinoni o‘chirmoqchimisiz?",
+                onYes: async () => {
+
+                    console.log("O'chirildi");
+                    const response = await api.delete(`/movies/${id}`)
+                    console.log("O'chirildi:", response.data);
+                    setMovie(null)
+                    // navigate("/admin/addMovie")
+                    await deletenotify()
+                    navigate(-1)
+                    setToastOptions({
+                        open: true,
+                        type: "success",
+                        text: "Kino o'chirildi"
+                    })
+                },
+                onNo:async ()=>{
+                    setToastOptions({
+                        open:true,
+                        text:"Bekor qilindi.",
+                        type:"warning"
+                    })
+                }
+            })
+
+        } catch (error) {
+            console.error("O'chirishda xato:", error);
+        }
     }
     useEffect(() => {
         getMovieById(id)
@@ -46,7 +69,7 @@ const oneMovieDelete= async()=>{
         setKinoSana(movie?.movie_year || "")
         setKinoVideo(movie?.videoUrl || "")
     }, [movie])
-    async function handleSubmitUpdate(e){
+    async function handleSubmitUpdate(e) {
         e.preventDefault();
         try {
             const formData = new FormData();
@@ -59,11 +82,27 @@ const oneMovieDelete= async()=>{
             const response = await api.put(`/movies/${id}`, formData);
             console.log("Yangilandi:", response.data);
             setMovie(response.data)
+            updatenotify()
         } catch (error) {
             console.error("Yangilashda xato:", error);
         }
     }
 
+    //toastify
+    const deletenotify = () => {
+        setToastOptions({
+            open: true,
+            text: "Kino to'liq o'chirildi!",
+            type: "error"
+        })
+    }
+    const updatenotify = () => {
+        setToastOptions({
+            open: true,
+            text: "Kino muvaffaqiyatli yangilandi!",
+            type: "success"
+        })
+    }
 
 
     if (!movie) return <h1>Loading...</h1>
@@ -96,15 +135,17 @@ const oneMovieDelete= async()=>{
                                 placeholder="Janr"
                                 type="text"
                                 value={kinoJanr}
-                                onChange={(e)=>{setKinoJanr(e.target.value
-                                )}}
+                                onChange={(e) => {
+                                    setKinoJanr(e.target.value
+                                    )
+                                }}
                             />
                             <Inputadd
                                 label="Chiqarilgan yili"
                                 placeholder="Chiqarilgan yili"
                                 type="number"
                                 value={kinoSana}
-                                onChange={(e)=>{setKinoSana(e.target.value)}}
+                                onChange={(e) => { setKinoSana(e.target.value) }}
                             />
                             <Inputadd
                                 label="Video fayl"
@@ -130,6 +171,7 @@ const oneMovieDelete= async()=>{
             <div className="one_video_delete">
                 <button onClick={oneMovieDelete}>O'chirish</button>
             </div>
+            <ToastifyComponent toastOptions={toastOptions} />
         </div>
     )
 }
