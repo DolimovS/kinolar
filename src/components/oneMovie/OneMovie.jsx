@@ -1,9 +1,9 @@
-import { useParams } from "react-router-dom"
+import { useParams,useNavigate } from "react-router-dom"
 import "./OneMovie.css"
 import api from "../../utils/axios"
 import { useEffect, useState } from "react"
 import Inputadd from "../../components/input/Inputadd"
-
+import ToastifyComponent from "../../utils/ToastifyComponent"
 
 const OneMovie = () => {
     const { id } = useParams()
@@ -13,7 +13,8 @@ const OneMovie = () => {
     const [kinoJanr,setKinoJanr]=useState(" ")
     const [kinoSana,setKinoSana]=useState("")
     const [kinoVideo,setKinoVideo]=useState("")
-
+    const [toastOptions,setToastOptions]=useState({open:false})
+    const navigate=useNavigate()
     console.log(id);
     async function getMovieById(id) {
         try {
@@ -31,6 +32,9 @@ const oneMovieDelete= async()=>{
         const response= await api.delete(`/movies/${id}`)
         console.log("O'chirildi:",response.data);
         setMovie(null)
+        // navigate("/admin/addMovie")
+        await deletenotify()
+        navigate(-1)
     } catch (error) {
         console.error("O'chirishda xato:",error);
     }
@@ -59,11 +63,27 @@ const oneMovieDelete= async()=>{
             const response = await api.put(`/movies/${id}`, formData);
             console.log("Yangilandi:", response.data);
             setMovie(response.data)
+            updatenotify()
         } catch (error) {
             console.error("Yangilashda xato:", error);
         }
     }
 
+    //toastify
+    const deletenotify=()=>{
+        setToastOptions({
+            open:true,
+            text:"Kino to'liq o'chirildi!",
+            type:"error"
+        })
+    }
+    const updatenotify=()=>{
+        setToastOptions({
+            open:true,
+            text:"Kino muvaffaqiyatli yangilandi!",
+            type:"success"
+        })
+    }
 
 
     if (!movie) return <h1>Loading...</h1>
@@ -130,6 +150,7 @@ const oneMovieDelete= async()=>{
             <div className="one_video_delete">
                 <button onClick={oneMovieDelete}>O'chirish</button>
             </div>
+            <ToastifyComponent toastOptions={toastOptions}/>
         </div>
     )
 }

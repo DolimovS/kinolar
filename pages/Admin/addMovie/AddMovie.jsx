@@ -3,6 +3,8 @@ import Inputadd from "../../../src/components/input/Inputadd";
 import { useState ,useEffect} from "react";
 import Posters from "../../../src/components/adminComponents/Posters";
 import api from "../../../src/utils/axios"
+import ToastifyComponent from "../../../src/utils/ToastifyComponent";
+// import { ToastContainer,toast } from "react-toastify";
 
 
 const AddMovie = () => {
@@ -12,8 +14,11 @@ const AddMovie = () => {
   const [kinoSana, setKinoSana] = useState("");
   const [kinoRasm, setKinoRasm] = useState("");
   const [kinoHaqidaMalumotlar,setKinoHaqidaMalumotlar]=useState([])
+  const [toastOptions,setToastOptions]=useState({open:false})
 
 
+
+  // yangilash funksiyasi
   async function handleSubmit(e) {
     e.preventDefault();
     try { 
@@ -32,30 +37,52 @@ const AddMovie = () => {
 
       await fetchMovies()
       inputValueClear()
+      showSuccess()
       
     } catch (error) {
       console.error("Yuborishda xato:", error);
     }
   }
+    // /toastify
+   const showSuccess=()=>{
+    setToastOptions({
+      open:true,
+      text:"Kino muvaffaqiyatli qo'shildi!",
+      type:"success"
+    })
+  }
+  const deletenotify=()=>{
+    setToastOptions({
+      open:true,
+      text:"Kino yuklash bekor qilindi!",
+      type:"error"
+    })
+  }
 
-
+// toastyify tugashi uchun
   function inputValueClear() {
     setKinoNomi("");
     setKinoHaqida("");
     setKinoJanr("");
     setKinoSana("");
     setKinoRasm("");
+    deletenotify()
   }
-
+// malumotlarni olish
   const fetchMovies =  async ()=>{
       const res= await api.get("/movies")
       setKinoHaqidaMalumotlar(res.data)
       console.log(res.data);
       
     }
+    // componentDidMount
   useEffect(()=>{
     fetchMovies()
   },[])
+
+
+
+ 
 
   return (
     <div className="addname_container">
@@ -104,7 +131,7 @@ const AddMovie = () => {
           onChange={(e) => setKinoRasm(e.target.files[0])}
         />
         <div className="form_btn">
-          <button onClick={() => inputValueClear()} className="noselect" type="button">
+          <button onClick={() => inputValueClear()}className="noselect" type="button">
             <span className="text">Bekor qilish</span>
             <span className="icon">
               <svg
@@ -129,6 +156,7 @@ const AddMovie = () => {
           </button>
         </div>
       </form>
+      <ToastifyComponent toastOptions={toastOptions}/>
 
       <Posters kinoHaqidaMalumotlar={kinoHaqidaMalumotlar} />
     </div>
