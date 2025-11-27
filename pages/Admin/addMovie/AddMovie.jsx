@@ -157,7 +157,7 @@ const AddMovie = () => {
         </div>
       </form>
       <ToastifyComponent toastOptions={toastOptions}/>
-
+      
       <Posters kinoHaqidaMalumotlar={kinoHaqidaMalumotlar} />
     </div>
   );
