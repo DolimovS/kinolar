@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Cards = ({ id, KinoNomi, KinoJanr, KinoImg }) => {
     const navigate=useNavigate()
     return (
-         <div  onClick={() => navigate(`/admin/addmovie/${id}`)} className="card_container">
+        <div  onClick={() => navigate(`/admin/addmovie/${id}`)} className="card_container">
             <div className="card_img">
                 <div className="card_janr">
                     <p>{KinoJanr && KinoJanr.length > 15

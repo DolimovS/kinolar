@@ -15,6 +15,14 @@ const useAppStore = create(
     isAdmin: false,
     setIsAdmin: (value) => set({ isAdmin: value }),
   }))
-)
 
+)
 export default useAppStore
+
+  //dashboard input qiymati
+  export const useDashboardInputStore=create(
+    devtools((set)=>({
+      text:"",
+      setText : (v)=>set({text:v})
+    }))
+  )
