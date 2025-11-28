@@ -1,57 +1,33 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-body {
-  min-height: 100vh;
+.corusel_container {
   display: flex;
   flex-direction: column;
+  gap: 20px;
   align-items: center;
-  justify-content: center;
-  background-color: #f5f5f5;
-  overflow: hidden;
-} */
+}
 
-/* .about-title {
+.about-title {
   font-size: 7.5rem;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.02em;
-  position: absolute;
-  top: 45px;
-  left: 50%;
-  transform: translateX(-50%);
   pointer-events: none;
   white-space: nowrap;
   font-family: "Arial Black", "Arial Bold", Arial, sans-serif;
-  background: linear-gradient(
-    to bottom,
-    rgb(8 42 123 / 35%) 30%,
-    rgb(255 255 255 / 0%) 76%
-  );
+  background: linear-gradient(to bottom, rgba(8, 42, 123, 0.35) 30%, rgba(255, 255, 255, 0) 76%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-} */
-
-
-.team-carousel{
-    /* border: 1px solid red; */
 }
+
 .carousel-container {
   width: 100%;
   max-width: 1200px;
   height: 450px;
-  position: relative;
-  perspective: 1000px;
-  margin-top: 40px;
-  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
 }
 
-.team-carousel .carousel-track {
+.carousel-track {
   width: 100%;
   height: 100%;
   display: flex;
@@ -59,11 +35,10 @@ body {
   align-items: center;
   position: relative;
   transform-style: preserve-3d;
-  border: 1px solid orange;
   transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.team-carousel .card {
+.card {
   position: absolute;
   width: 280px;
   height: 380px;
@@ -73,106 +48,77 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
-  /* border: 1px solid red; */
 }
 
-.team-carousel .card img {
+.card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 1px solid red;
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.team-carousel .card.center {
+.card.center {
   z-index: 10;
   transform: scale(1.1) translateZ(0);
 }
 
-.team-carousel .card.center img {
-  filter: none;
-}
-
-.team-carousel .card.left-2 {
-  z-index: 1;
-  transform: translateX(-400px) scale(0.8) translateZ(-300px);
-  opacity: 0.7;
-}
-
-.team-carousel .card.left-2 img {
-  filter: grayscale(100%);
-}
-
-.team-carousel .card.left-1 {
-  z-index: 5;
+.card.left-1 {
   transform: translateX(-200px) scale(0.9) translateZ(-100px);
   opacity: 0.9;
-}
-
-.team-carousel .card.left-1 img {
+  z-index: 5;
   filter: grayscale(100%);
 }
 
-.team-carousel .card.right-1 {
-  z-index: 5;
+.card.left-2 {
+  transform: translateX(-400px) scale(0.8) translateZ(-300px);
+  opacity: 0.7;
+  z-index: 1;
+  filter: grayscale(100%);
+}
+
+.card.right-1 {
   transform: translateX(200px) scale(0.9) translateZ(-100px);
   opacity: 0.9;
-}
-
-.team-carousel .card.right-1 img {
+  z-index: 5;
   filter: grayscale(100%);
 }
 
-.team-carousel .card.right-2 {
-  z-index: 1;
+.card.right-2 {
   transform: translateX(400px) scale(0.8) translateZ(-300px);
   opacity: 0.7;
-}
-
-.team-carousel .card.right-2 img {
+  z-index: 1;
   filter: grayscale(100%);
 }
 
-.team-carousel .card.hidden {
+.card.hidden {
   opacity: 0;
   pointer-events: none;
 }
 
-.team-carousel .member-info {
+.member-info {
   text-align: center;
-  margin-top: 20px;
   transition: all 0.5s ease-out;
-  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  height: 100px;
 }
 
-.team-carousel .member-name {
+.text_liner {
+  width: 3px;
+  height: 80px;
+  background-color: rgb(8, 42, 123);
+  border: none;
+  transform: rotate(90deg);
+}
+
+.member-name {
   color: rgb(8, 42, 123);
   font-size: 2.5rem;
   font-weight: 700;
-  /* margin-bottom: 10px; */
-  position: relative;
-  display: inline-block;
 }
 
-.team-carousel .member-name::before,
-.team-carousel .member-name::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 100px;
-  height: 2px;
-  background: rgb(8, 42, 123);
-}
-
-.team-carousel .member-name::before {
-  left: -120px;
-}
-
-.team-carousel .member-name::after {
-  right: -120px;
-}
-
-.team-carousel .member-role {
+.member-role {
   color: #848696;
   font-size: 1.5rem;
   font-weight: 500;
@@ -180,19 +126,15 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 10px 0;
-  margin-top: -15px;
-  position: relative;
 }
 
-.team-carousel .dots {
+.dots {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 30px;
-  /* border: 1px solid red; */
 }
 
-.team-carousel .dot {
+.dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -201,13 +143,12 @@ body {
   transition: all 0.3s ease;
 }
 
-.team-carousel .dot.active {
+.dot.active {
   background: rgb(8, 42, 123);
   transform: scale(1.2);
 }
 
-.team-carousel .nav-arrow {
-  position: absolute;
+.nav-arrow {
   top: 50%;
   transform: translateY(-50%);
   background: rgba(8, 42, 123, 0.6);
@@ -224,68 +165,159 @@ body {
   font-size: 1.5rem;
   border: none;
   outline: none;
-  padding-bottom: 4px;
 }
 
-.team-carousel .nav-arrow:hover {
+.nav-arrow:hover {
   background: rgba(0, 0, 0, 0.8);
   transform: translateY(-50%) scale(1.1);
 }
 
-.team-carousel .nav-arrow.left {
+.nav-arrow.left {
   left: 20px;
-  padding-right: 3px;
 }
 
-.team-carousel .nav-arrow.right {
+.nav-arrow.right {
   right: 20px;
-  padding-left: 3px;
+}
+
+
+/* ==============================media================ */
+@media (max-width: 1120px) {
+  .about-title {
+    font-size: 5.2rem;
+    font-weight: 800;
+  }
 }
 
 @media (max-width: 768px) {
-  .team-carousel .about-title {
+  .about-title {
     font-size: 4.5rem;
   }
 
-  .team-carousel .card {
+
+  .card {
     width: 200px;
     height: 280px;
   }
 
-  .team-carousel .card.left-2 {
+  .carousel-container {
+    height: 350px;
+  }
+
+  .card.left-2 {
     transform: translateX(-250px) scale(0.8) translateZ(-300px);
   }
 
-  .team-carousel .card.left-1 {
+  .card.left-1 {
     transform: translateX(-120px) scale(0.9) translateZ(-100px);
   }
 
-  .team-carousel .card.right-1 {
+  .card.right-1 {
     transform: translateX(120px) scale(0.9) translateZ(-100px);
   }
 
-  .team-carousel .card.right-2 {
+  .card.right-2 {
     transform: translateX(250px) scale(0.8) translateZ(-300px);
   }
 
-  .team-carousel .member-name {
+  .member-name {
     font-size: 2rem;
   }
 
-  .team-carousel .member-role {
+  .member-role {
     font-size: 1.2rem;
   }
 
-  .team-carousel .member-name::before,
-  .team-carousel .member-name::after {
+  .member-name::before,
+  .member-name::after {
     width: 50px;
   }
 
-  .team-carousel .member-name::before {
+  .member-name::before {
     left: -70px;
   }
 
-  .team-carousel .member-name::after {
+  .member-name::after {
     right: -70px;
+  }
+
+  .member-info {
+    height: 80px;
+  }
+}
+
+
+
+@media (max-width: 670px) {
+  .corusel_container {
+    gap: 10px;
+  }
+
+  .about-title {
+    font-size: 3.5rem;
+  }
+
+  .card {
+    width: 170px;
+    height: 250px;
+  }
+
+  .carousel-container {
+    height: 300px;
+  }
+
+  .member-name {
+    font-size: 1.5rem;
+  }
+
+  .member-role {
+    font-size: 1rem;
+  }
+
+  .member-name::before,
+  .member-name::after {
+    width: 40px;
+  }
+
+  .member-info {
+    height: 70px;
+    gap: 50px;
+  }
+
+  .text_liner {
+    height: 60px;
+  }
+}
+
+@media (max-width: 550px) {
+  .about-title {
+    font-size: 2.5rem;
+  }
+
+  .member-name {
+    font-size: 1rem;
+  }
+
+  .member-role {
+    font-size: 0.8;
+  }
+
+  .member-info {
+    height: 60px;
+    gap: 45px;
+  }
+
+  .text_liner {
+    height: 40px;
+  }
+}
+
+@media (max-width: 450px) {
+  .corusel_container {
+    gap: 10px;
+  }
+
+  .about-title {
+    font-size: 2rem;
   }
 }
