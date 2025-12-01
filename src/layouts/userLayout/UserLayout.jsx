@@ -4,7 +4,7 @@ import Kinolar from "../../../pages/User/kinolar/kinolar"
 import Premreyalar from "../../../pages/User/premreyalar/Premreyalar"
 import Janrlar from "../../../pages/User/janrlar/Janrlar"
 import Contact from "../../../pages/User/contact/Contact"
-
+import KinoPlayer from "../../components/kinoPlayer/KinoPlayer"
 
 
 import "./UserLayout.css"
@@ -21,6 +21,7 @@ const UserLayout = () => {
           <Route path="/premreyalar" element={<Premreyalar/>} />
           <Route path="/janrlar" element={<Janrlar/>} />
           <Route path="/contact" element={<Contact/>} />
+          <Route path="/kinolar/:id" element={<KinoPlayer/>} />
         </Routes>
         </div>
 

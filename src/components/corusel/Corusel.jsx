@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import api from "../../utils/axios"; // axios instance
 import "./Corusel.css";
-import { NavLink } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 const TeamCarousel = () => {
     const [teamMembers, setTeamMembers] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
-
+    const navigate=useNavigate()
     // Backenddan ma'lumot olib kelish
     useEffect(() => {
         async function fetchProducts() {
@@ -89,9 +89,9 @@ const TeamCarousel = () => {
                 <div className="carousel-track">
                     {teamMembers.map((member, i) => (
                         <div key={i} className={getCardClass(i)}>
-                            <NavLink to="#">
-                                <img src={member.imgUrl} alt={member.name} />
-                            </NavLink>
+                            {/* <NavLink to="#"> */}
+                                <img onClick={()=>navigate(`/kinolar/${member._id}`)} src={member.imgUrl} alt={member.name} />
+                            {/* </NavLink> */}
                         </div>
                     ))}
                 </div>

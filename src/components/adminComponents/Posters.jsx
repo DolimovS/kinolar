@@ -5,20 +5,6 @@ const Posters = ({kinoHaqidaMalumotlar}) => {
 
 
 
-  // const [kinoHaqidaMalumotlar,setKinoHaqidaMalumotlar]=useState([])
-
-  // const fetchMovies=  async ()=>{
-  //     const res= await api.get("/movies")
-  //     setKinoHaqidaMalumotlar(res.data)
-  //     console.log(res.data);
-      
-  //   }
-  // useEffect(()=>{
-  //   fetchMovies()
-  
-  // },[])
-
-
   console.log(kinoHaqidaMalumotlar);
   
   return (
