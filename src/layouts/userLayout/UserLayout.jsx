@@ -15,14 +15,14 @@ const UserLayout = () => {
         <UserNavbar/>
       </div>
         <div className="nav_pages">
-           <Routes>
-          <Route path="/" element={<Kinolar/>} />
-          <Route path="/kinolar" element={<Kinolar/>} />
-          <Route path="/premreyalar" element={<Premreyalar/>} />
-          <Route path="/janrlar" element={<Janrlar/>} />
-          <Route path="/contact" element={<Contact/>} />
-          <Route path="/kinolar/:id" element={<KinoPlayer/>} />
-        </Routes>
+            <Routes>
+              <Route path="/" element={<Kinolar/>} />
+              <Route path="/kinolar" element={<Kinolar/>} />
+              <Route path="/premreyalar" element={<Premreyalar/>} />
+              <Route path="/janrlar" element={<Janrlar/>} />
+              <Route path="/contact" element={<Contact/>} />
+              <Route path="/kinolar/:id" element={<KinoPlayer/>} />
+            </Routes>
         </div>
 
     </div>

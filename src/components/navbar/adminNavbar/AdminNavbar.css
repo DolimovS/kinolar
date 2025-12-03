@@ -1,39 +1,52 @@
 .admin_nav,
-.user_nav{
-        display: flex;
+.user_nav {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     margin: 0 auto;
+    width: 90%;
 }
+
 .admin_navbar,
 .user_navbar {
     position: static;
     top: 0;
     display: flex;
+    flex-direction: column;
+    gap: 10px;
     align-items: center;
     justify-content: space-between;
     /* max-width: 1400px; */
-    width: 90%;
+    width: 100%;
     padding: 20px 30px;
     border-radius: 0 0 20px 20px;
     backdrop-filter: blur(30px);
-    box-shadow: 0 5px 30px 0 rgba(22, 32, 220, 0.37);
+    box-shadow: 0 5px 20px 0 rgba(95, 95, 97, 0.37);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-top: none;
 }
 
+.user_navbar_top,
+.admin_navbar_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
 
 
 
 
 .nav_links {
     display: flex;
+
     gap: 20px;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.nav_link_span  {
+.nav_link_span {
     position: relative;
     color: var(--text-color);
     font-size: 16px;
@@ -61,20 +74,74 @@
 }
 
 
-.nav_contact{
+.nav_contact {
     display: flex;
     gap: 20px;
+    align-items:center;
+    /* border: 1px solid red; */
 }
-.nav_contact button path{
+
+.nav_contact button path {
     stroke: var(--text-color);
     cursor: pointer;
 }
 
-.nav_contact button{
+.nav_contact button {
     /* border: 1px solid red; */
-    padding: 5px ;
-    border-radius: 10px;
+    padding: 0;
+    /* padding: 5px; */
+    /* border-radius: 10px; */
     /* background-color: #fff; */
     background-color: transparent;
-    backdrop-filter: blur(20px);
+    /* backdrop-filter: blur(20px); */
+}
+
+.nav_links_button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav_bars_icons{
+    display: none;
+}
+@media (max-width:870px) {
+
+    .admin_navbar,
+    .user_navbar {
+        padding: 15px 20px;
+    }
+
+    .nav_links {
+        gap: 15px;
+    }
+
+    .nav_link_span {
+        font-size: 14px;
+        padding-bottom: 3px;
+    }
+
+    .nav_contact {
+        gap: 10px;
+    }
+}
+
+@media (max-width:500px){
+.admin_nav,
+.user_nav {
+    width: 100%;
+}
+    .admin_navbar,
+    .user_navbar {
+        padding: 15px 20px;
+    }
+    .nav_links_button{
+        /* border: 1px solid red; */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .nav_bars_icons{
+    display: block;
+}
 }
