@@ -13,3 +13,10 @@ h1 span{
         background-position-x: -500px;
     }
 }
+
+
+@media (max-width:870px) {
+h1 span{
+    font-size: 30px;
+}
+}

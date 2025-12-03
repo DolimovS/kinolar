@@ -149,3 +149,14 @@
 .button_next:active {
   transform: scale(0.97);
 }
+
+@media (max-width:420px) {
+  
+.form_btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+}
